@@ -1,0 +1,256 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>职场简历优化｜闲鱼上架稿</title>
+  <style>
+    :root {
+      --ink: #17212b;
+      --muted: #69727d;
+      --paper: #f7f8f6;
+      --white: #ffffff;
+      --orange: #ff7a45;
+      --blue: #3978a7;
+      --line: #dfe4e8;
+      --soft-orange: #fff0e9;
+      --soft-blue: #eaf3f8;
+    }
+
+    * { box-sizing: border-box; }
+    html, body { margin: 0; background: #d9dde0; color: var(--ink); font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", Arial, sans-serif; }
+    body { padding: 32px 20px 56px; }
+    .intro { max-width: 1120px; margin: 0 auto 24px; }
+    .intro h1 { margin: 0 0 8px; font-size: 28px; letter-spacing: 0; }
+    .intro p { margin: 0; color: var(--muted); line-height: 1.7; }
+    .note { margin-top: 14px; padding: 12px 14px; border-left: 4px solid var(--orange); background: var(--white); color: #47515b; line-height: 1.7; }
+    .slides { display: grid; gap: 28px; justify-items: center; }
+    .slide {
+      width: min(100%, 720px);
+      aspect-ratio: 3 / 4;
+      position: relative;
+      overflow: hidden;
+      background: var(--paper);
+      box-shadow: 0 14px 40px rgba(35, 44, 52, .16);
+      padding: 58px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .slide::after {
+      content: "";
+      position: absolute;
+      width: 260px;
+      height: 260px;
+      right: -100px;
+      top: -100px;
+      border-radius: 50%;
+      background: var(--soft-orange);
+    }
+    .slide.blue::after { background: var(--soft-blue); }
+    .eyebrow { position: relative; z-index: 1; color: var(--orange); font-size: 18px; font-weight: 700; letter-spacing: 0; }
+    .blue .eyebrow { color: var(--blue); }
+    h2 { position: relative; z-index: 1; margin: 18px 0 16px; max-width: 92%; font-size: clamp(34px, 6vw, 62px); line-height: 1.12; letter-spacing: 0; }
+    .lead { position: relative; z-index: 1; margin: 0; max-width: 88%; color: #4e5962; font-size: clamp(18px, 2.6vw, 28px); line-height: 1.55; }
+    .footer { position: relative; z-index: 1; display: flex; justify-content: space-between; align-items: end; gap: 20px; color: var(--muted); font-size: 16px; line-height: 1.5; }
+    .tag-row { display: flex; flex-wrap: wrap; gap: 10px; max-width: 74%; }
+    .tag { padding: 8px 12px; background: var(--white); border: 1px solid var(--line); color: #4e5962; }
+    .mark { width: 54px; height: 54px; display: grid; place-items: center; background: var(--ink); color: var(--white); font-weight: 800; font-size: 22px; }
+    .split { position: relative; z-index: 1; display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-top: 22px; }
+    .panel { min-height: 230px; padding: 22px; background: var(--white); border: 1px solid var(--line); }
+    .panel.after { border-top: 5px solid var(--orange); }
+    .panel h3 { margin: 0 0 14px; font-size: 22px; }
+    .panel p { margin: 0; color: #56616b; font-size: 18px; line-height: 1.7; }
+    .panel small { display: block; margin-bottom: 12px; color: var(--muted); }
+    .service-grid { position: relative; z-index: 1; display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 22px; }
+    .service { padding: 18px; min-height: 106px; background: var(--white); border: 1px solid var(--line); }
+    .service strong { display: block; margin-bottom: 8px; font-size: 20px; }
+    .service span { color: var(--muted); line-height: 1.6; }
+    .steps { position: relative; z-index: 1; display: grid; gap: 12px; margin-top: 20px; }
+    .step { display: grid; grid-template-columns: 42px 1fr; gap: 14px; align-items: center; padding: 15px 16px; background: var(--white); border: 1px solid var(--line); }
+    .num { width: 34px; height: 34px; display: grid; place-items: center; background: var(--orange); color: var(--white); font-weight: 800; }
+    .step strong { font-size: 19px; }
+    .step span { display: block; margin-top: 3px; color: var(--muted); }
+    .deliver { position: relative; z-index: 1; display: grid; gap: 14px; margin-top: 20px; }
+    .deliver-item { display: flex; align-items: center; gap: 16px; padding: 18px; background: var(--white); border: 1px solid var(--line); }
+    .check { width: 30px; height: 30px; display: grid; place-items: center; background: var(--soft-orange); color: var(--orange); font-weight: 800; }
+    .deliver-item strong { font-size: 20px; }
+    .deliver-item span { display: block; color: var(--muted); margin-top: 3px; }
+    .copy { max-width: 1120px; margin: 40px auto 0; padding: 30px; background: var(--white); }
+    .copy h2 { position: static; margin: 0 0 16px; max-width: none; font-size: 26px; }
+    .copy h3 { margin: 24px 0 8px; font-size: 20px; }
+    .copy pre { margin: 0; padding: 18px; overflow: auto; white-space: pre-wrap; background: #f4f6f7; border: 1px solid var(--line); color: #26313b; font: 15px/1.8 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
+    @media (max-width: 560px) {
+      body { padding: 16px 10px 36px; }
+      .slide { padding: 30px; }
+      .split, .service-grid { grid-template-columns: 1fr; }
+      .panel { min-height: auto; }
+      .footer { align-items: start; flex-direction: column; }
+      .tag-row { max-width: 100%; }
+    }
+    @media print {
+      body { padding: 0; background: white; }
+      .intro, .copy { display: none; }
+      .slides { gap: 0; }
+      .slide { width: 100vw; height: 133.333vw; max-height: 100vh; max-width: 75vh; box-shadow: none; break-after: page; }
+    }
+  </style>
+</head>
+<body>
+  <header class="intro">
+    <h1>职场简历优化｜闲鱼上架稿</h1>
+    <p>商品定位：面向跳槽、转行、晋升和岗位匹配的职场简历优化服务。页面按闲鱼商品图逻辑制作，可逐页截图使用。</p>
+    <div class="note">上架前请替换方括号中的个人经历，并补充实际价格、交付时间和修改范围。发布和成交都按闲鱼页面及订单约定执行。</div>
+  </header>
+
+  <div class="slides">
+    <section class="slide">
+      <div>
+        <div class="eyebrow">职场简历优化</div>
+        <h2>把工作经历<br>写出价值</h2>
+        <p class="lead">结合真实职场经验，帮你把经历写清楚、重点提出来、表达更专业。</p>
+      </div>
+      <div class="footer">
+        <div class="tag-row">
+          <span class="tag">跳槽</span><span class="tag">转行</span><span class="tag">晋升</span><span class="tag">岗位匹配</span>
+        </div>
+        <div class="mark">CV</div>
+      </div>
+    </section>
+
+    <section class="slide blue">
+      <div>
+        <div class="eyebrow">表达优化</div>
+        <h2>同一段经历<br>换一种写法</h2>
+        <div class="split">
+          <div class="panel">
+            <small>原始表达</small>
+            <p>负责客户运营，跟进日常工作。</p>
+          </div>
+          <div class="panel after">
+            <small>优化表达</small>
+            <p>负责客户运营流程优化，梳理跟进节点并建立数据记录机制，提升团队跟进效率。</p>
+          </div>
+        </div>
+      </div>
+      <div class="footer"><span>基于真实经历优化，不虚构数据和成果</span><span>02 / 06</span></div>
+    </section>
+
+    <section class="slide">
+      <div>
+        <div class="eyebrow">关于我</div>
+        <h2>我为什么<br>能帮你改</h2>
+        <div class="service-grid">
+          <div class="service"><strong>头部互联网公司</strong><span>曾任某头部互联网公司产品负责人。</span></div>
+          <div class="service"><strong>产品与项目管理</strong><span>拥有多年产品与项目管理经验。</span></div>
+          <div class="service"><strong>熟悉业务表达</strong><span>擅长提炼工作经历、项目成果和业务价值。</span></div>
+          <div class="service"><strong>岗位简历优化</strong><span>擅长优化产品、运营、项目管理岗位简历。</span></div>
+        </div>
+      </div>
+      <div class="footer"><span>用真实职场经验，帮你把工作价值讲清楚</span><span>03 / 06</span></div>
+    </section>
+
+    <section class="slide blue">
+      <div>
+        <div class="eyebrow">服务范围</div>
+        <h2>适合这些<br>职场场景</h2>
+        <div class="service-grid">
+          <div class="service"><strong>跳槽求职</strong><span>突出核心能力和代表性项目。</span></div>
+          <div class="service"><strong>转行求职</strong><span>重新组织可迁移经验与岗位关键词。</span></div>
+          <div class="service"><strong>晋升竞聘</strong><span>把工作成果、业务贡献和能力证明写清楚。</span></div>
+          <div class="service"><strong>岗位匹配</strong><span>根据目标岗位调整内容重点和排序。</span></div>
+        </div>
+      </div>
+      <div class="footer"><span>产品｜运营｜销售｜设计｜技术｜行政等职能</span><span>04 / 06</span></div>
+    </section>
+
+    <section class="slide">
+      <div>
+        <div class="eyebrow">制作流程</div>
+        <h2>下单后<br>这样完成</h2>
+        <div class="steps">
+          <div class="step"><div class="num">1</div><div><strong>发送资料</strong><span>原始简历、目标岗位和补充信息</span></div></div>
+          <div class="step"><div class="num">2</div><div><strong>确认重点</strong><span>明确用途、方向、交付时间和修改需求</span></div></div>
+          <div class="step"><div class="num">3</div><div><strong>优化内容</strong><span>梳理经历、提炼成果、调整表达和结构</span></div></div>
+          <div class="step"><div class="num">4</div><div><strong>交付文件</strong><span>提供可编辑版本和预览版本</span></div></div>
+        </div>
+      </div>
+      <div class="footer"><span>先沟通需求，再确认具体报价</span><span>05 / 06</span></div>
+    </section>
+
+    <section class="slide blue">
+      <div>
+        <div class="eyebrow">交付说明</div>
+        <h2>你最后<br>会收到什么</h2>
+        <div class="deliver">
+          <div class="deliver-item"><div class="check">✓</div><div><strong>Word可编辑版</strong><span>方便你后续自行修改和更新。</span></div></div>
+          <div class="deliver-item"><div class="check">✓</div><div><strong>PDF预览版</strong><span>方便投递、预览和确认最终效果。</span></div></div>
+          <div class="deliver-item"><div class="check">✓</div><div><strong>内容与版式优化</strong><span>重点处理表达、结构、层级和阅读体验。</span></div></div>
+          <div class="deliver-item"><div class="check">✓</div><div><strong>资料最小化</strong><span>请先隐藏非必要联系方式和证件信息。</span></div></div>
+        </div>
+      </div>
+      <div class="footer"><span>具体价格、交付时间和修改范围以订单约定为准</span><span>06 / 06</span></div>
+    </section>
+  </div>
+
+  <section class="copy">
+    <h2>闲鱼发布文案</h2>
+    <h3>推荐标题</h3>
+    <pre>职场简历优化修改｜跳槽转行｜项目经历润色｜岗位匹配｜Word可编辑版</pre>
+    <h3>详情页正文</h3>
+    <pre>【关于我】
+曾任某头部互联网公司产品负责人，拥有多年产品与项目管理经验，擅长优化产品、运营、项目管理岗位简历。
+熟悉工作经历、项目成果和业务价值的表达方式，重点帮助你梳理经历结构、提炼岗位相关内容和优化简历版式。
+
+【服务方向】
+主要提供职场简历优化、工作经历润色和岗位匹配服务。
+
+适合：
+跳槽求职、转行求职、晋升竞聘、岗位方向调整等职场场景。
+
+【服务内容】
+1. 原有简历优化修改
+2. 工作经历和项目经历润色
+3. 项目成果和业务价值提炼
+4. 根据目标岗位调整关键词和内容重点
+5. 自我介绍和职业概述优化
+6. 中文或英文简历排版
+7. Word可编辑版和PDF版交付
+
+【制作方式】
+结合目标岗位和你的真实经历，梳理内容逻辑、提炼项目成果、调整表达方式和版式层级。
+重点处理内容清晰度、岗位相关性和阅读体验。
+不虚构工作经历，不夸大项目成果，涉及数据时以你提供的信息为准。
+
+【资料与沟通】
+请通过闲鱼内聊天和订单约定完成沟通与交付。
+发送资料前，请先隐藏与本次制作无关的个人信息，只提供完成服务所必需的内容。
+涉及公司客户、业务数据或内部文件时，请先做脱敏处理，并确认你拥有使用这些材料的权利。
+
+【制作流程】
+发送原始简历和目标岗位
+确认使用场景、重点内容和交付时间
+梳理工作经历与项目成果
+优化文字、结构和版式
+按照订单约定完成修改并交付最终文件
+
+【交付内容】
+Word可编辑版 + PDF预览版
+
+具体价格、交付时间和修改范围以商品页面及订单约定为准。
+有需求可以先发送脱敏后的简历片段、目标岗位和想重点优化的部分。</pre>
+    <h3>首句自动回复</h3>
+    <pre>你好，可以先发脱敏后的简历片段、目标岗位和希望优化的方向。我会先确认服务范围、交付时间和修改内容，再按商品页面及订单约定处理。</pre>
+
+    <h3>上架前自检</h3>
+    <pre>□ 标题、商品图、详情页和实际服务一致
+□ 已补充真实价格、交付时间、修改次数和文件格式
+□ 个人经历与案例真实，案例已脱敏并确认拥有使用权
+□ 没有外部联系方式、二维码、站外链接或隐晦导流
+□ 没有保证面试、保证Offer、保证录用或其他确定性结果
+□ 没有混入PPT、校园、教育或课程作业内容
+□ 客户资料按最小必要原则收集，并提醒先脱敏
+□ 新增岗位方向和大幅改稿已在闲鱼内确认范围、价格和时间</pre>
+  </section>
+</body>
+</html>

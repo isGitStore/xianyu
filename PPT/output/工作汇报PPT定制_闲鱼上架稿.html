@@ -1,0 +1,412 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>工作汇报PPT定制｜闲鱼上架稿</title>
+  <style>
+    :root {
+      --ink: #17212b;
+      --muted: #66717c;
+      --paper: #f7f8f6;
+      --white: #fff;
+      --blue: #3978a7;
+      --orange: #ef754d;
+      --line: #dfe5e8;
+      --soft-blue: #eaf3f8;
+      --soft-orange: #fff0e9;
+      --dark: #182027;
+    }
+    * { box-sizing: border-box; }
+    html, body {
+      margin: 0;
+      color: var(--ink);
+      background: #d9dde0;
+      font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
+    }
+    body { padding: 32px 20px 56px; }
+    .intro, .copy { max-width: 1120px; margin: 0 auto; }
+    .intro { margin-bottom: 24px; }
+    .intro h1 { margin: 0 0 8px; font-size: 28px; }
+    .intro p { margin: 0; color: var(--muted); line-height: 1.7; }
+    .note {
+      margin-top: 14px;
+      padding: 12px 14px;
+      border-left: 4px solid var(--orange);
+      background: var(--white);
+      color: #47515b;
+      line-height: 1.7;
+    }
+    .slides { display: grid; gap: 28px; justify-items: center; }
+    .slide {
+      width: min(100%, 720px);
+      aspect-ratio: 3 / 4;
+      position: relative;
+      overflow: hidden;
+      padding: 58px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      background: var(--paper);
+      box-shadow: 0 14px 40px rgba(35, 44, 52, .16);
+    }
+    .slide.dark { color: #f7fafb; background: var(--dark); }
+    .slide::after {
+      content: "";
+      position: absolute;
+      width: 270px;
+      height: 270px;
+      right: -110px;
+      top: -100px;
+      border-radius: 50%;
+      background: var(--soft-orange);
+    }
+    .slide.blue::after { background: var(--soft-blue); }
+    .dark::after { background: rgba(57, 120, 167, .28); }
+    .eyebrow, h2, .lead, .footer, .panel, .service-grid, .steps, .deliver, .scene-grid, .mini-pages {
+      position: relative;
+      z-index: 1;
+    }
+    .eyebrow {
+      color: var(--orange);
+      font-size: 18px;
+      font-weight: 700;
+    }
+    .blue .eyebrow { color: var(--blue); }
+    .dark .eyebrow { color: #8fc6e5; }
+    h2 {
+      max-width: 93%;
+      margin: 18px 0 16px;
+      font-size: clamp(34px, 6vw, 62px);
+      line-height: 1.12;
+    }
+    .lead {
+      max-width: 88%;
+      margin: 0;
+      color: #4e5962;
+      font-size: clamp(18px, 2.6vw, 28px);
+      line-height: 1.55;
+    }
+    .dark .lead { color: #c9d5dc; }
+    .footer {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 20px;
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.5;
+    }
+    .dark .footer { color: #afbec6; }
+    .tag-row { display: flex; flex-wrap: wrap; gap: 10px; max-width: 75%; }
+    .tag {
+      padding: 8px 12px;
+      border: 1px solid var(--line);
+      background: var(--white);
+      color: #4e5962;
+    }
+    .dark .tag { border-color: #475862; background: #26343d; color: #dbe6eb; }
+    .mark {
+      width: 54px;
+      height: 54px;
+      display: grid;
+      place-items: center;
+      background: var(--ink);
+      color: var(--white);
+      font-size: 20px;
+      font-weight: 800;
+    }
+    .dark .mark { background: #f4f8fa; color: var(--dark); }
+    .split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+      margin-top: 22px;
+    }
+    .panel {
+      min-height: 236px;
+      padding: 22px;
+      border: 1px solid var(--line);
+      background: var(--white);
+    }
+    .panel.after { border-top: 5px solid var(--orange); }
+    .panel h3 { margin: 0 0 14px; font-size: 22px; }
+    .panel p { margin: 0; color: #56616b; font-size: 18px; line-height: 1.7; }
+    .panel small { display: block; margin-bottom: 12px; color: var(--muted); }
+    .service-grid, .scene-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 22px;
+    }
+    .service, .scene {
+      min-height: 108px;
+      padding: 18px;
+      border: 1px solid var(--line);
+      background: var(--white);
+    }
+    .service strong, .scene strong { display: block; margin-bottom: 8px; font-size: 20px; }
+    .service span, .scene span { color: var(--muted); line-height: 1.6; }
+    .steps, .deliver { display: grid; gap: 12px; margin-top: 20px; }
+    .step {
+      display: grid;
+      grid-template-columns: 42px 1fr;
+      gap: 14px;
+      align-items: center;
+      padding: 15px 16px;
+      border: 1px solid var(--line);
+      background: var(--white);
+    }
+    .num, .check {
+      display: grid;
+      place-items: center;
+      width: 34px;
+      height: 34px;
+      font-weight: 800;
+    }
+    .num { background: var(--orange); color: var(--white); }
+    .step strong { font-size: 19px; }
+    .step span { display: block; margin-top: 3px; color: var(--muted); }
+    .deliver-item {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 18px;
+      border: 1px solid var(--line);
+      background: var(--white);
+    }
+    .check { background: var(--soft-orange); color: var(--orange); }
+    .deliver-item strong { font-size: 20px; }
+    .deliver-item span { display: block; margin-top: 3px; color: var(--muted); }
+    .mini-pages {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-top: 28px;
+    }
+    .mini-page {
+      min-height: 190px;
+      padding: 14px;
+      border: 1px solid #ced9df;
+      background: #fff;
+    }
+    .mini-page b { display: block; width: 72%; height: 9px; margin-bottom: 16px; background: var(--ink); }
+    .mini-page i { display: block; width: 100%; height: 9px; margin: 8px 0; background: #dfe7ea; }
+    .mini-page i.short { width: 65%; }
+    .mini-page .bar { height: 52px; margin-top: 18px; background: var(--soft-blue); border-left: 8px solid var(--blue); }
+    .copy {
+      margin-top: 40px;
+      padding: 30px;
+      background: var(--white);
+    }
+    .copy h2 { margin: 0 0 16px; max-width: none; font-size: 26px; }
+    .copy h3 { margin: 24px 0 8px; font-size: 20px; }
+    .copy pre {
+      margin: 0;
+      padding: 18px;
+      overflow: auto;
+      white-space: pre-wrap;
+      border: 1px solid var(--line);
+      background: #f4f6f7;
+      color: #26313b;
+      font: 15px/1.8 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    }
+    @media (max-width: 560px) {
+      body { padding: 16px 10px 36px; }
+      .slide { padding: 30px; }
+      .split, .service-grid, .scene-grid, .mini-pages { grid-template-columns: 1fr; }
+      .panel { min-height: auto; }
+      .footer { align-items: start; flex-direction: column; }
+      .tag-row { max-width: 100%; }
+    }
+    @media print {
+      body { padding: 0; background: #fff; }
+      .intro, .copy { display: none; }
+      .slides { gap: 0; }
+      .slide {
+        width: 100vw;
+        height: 133.333vw;
+        max-width: 75vh;
+        max-height: 100vh;
+        box-shadow: none;
+        break-after: page;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="intro">
+    <h1>工作汇报PPT定制｜闲鱼上架稿</h1>
+    <p>页面按闲鱼商品图逻辑制作，前 6 页可逐页截图使用，底部文案可复制到商品详情页。</p>
+    <div class="note">发布前请补充真实的服务价格、页数、交付时间、修改次数和个人经历。没有确认的公司、职位、年限、客户或案例，不要直接写成事实。</div>
+  </header>
+
+  <main class="slides">
+    <section class="slide">
+      <div>
+        <div class="eyebrow">工作汇报PPT定制</div>
+        <h2>PPT不是没有内容<br>而是没有把重点讲清楚</h2>
+        <p class="lead">把零散资料整理成清晰结构，让页面更适合汇报、投屏和展示。</p>
+        <div class="mini-pages">
+          <div class="mini-page"><b></b><i></i><i class="short"></i><div class="bar"></div></div>
+          <div class="mini-page"><b></b><i></i><i></i><i class="short"></i><div class="bar"></div></div>
+          <div class="mini-page"><b></b><i class="short"></i><i></i><div class="bar"></div></div>
+        </div>
+      </div>
+      <div class="footer">
+        <div class="tag-row"><span class="tag">结构梳理</span><span class="tag">页面设计</span><span class="tag">可编辑交付</span></div>
+        <div class="mark">PPT</div>
+      </div>
+    </section>
+
+    <section class="slide blue">
+      <div>
+        <div class="eyebrow">先解决表达问题</div>
+        <h2>你的PPT<br>是不是也有这些问题？</h2>
+        <div class="service-grid">
+          <div class="service"><strong>文字很多</strong><span>但不知道重点应该放在哪里。</span></div>
+          <div class="service"><strong>没有主线</strong><span>每一页都在讲，前后却接不起来。</span></div>
+          <div class="service"><strong>标题太泛</strong><span>只是栏目名称，没有直接说结论。</span></div>
+          <div class="service"><strong>页面太乱</strong><span>表格、数据和流程图难以阅读。</span></div>
+          <div class="service"><strong>风格不统一</strong><span>字体、颜色和间距缺少秩序。</span></div>
+          <div class="service"><strong>临时要汇报</strong><span>有资料，却没有时间重新整理。</span></div>
+        </div>
+      </div>
+      <div class="footer"><span>有资料，不等于能直接做成一份好讲的PPT</span><span>02 / 06</span></div>
+    </section>
+
+    <section class="slide">
+      <div>
+        <div class="eyebrow">服务内容</div>
+        <h2>我会帮你<br>处理哪些内容？</h2>
+        <div class="service-grid">
+          <div class="service"><strong>内容结构梳理</strong><span>把零散文字整理成清晰的页面顺序。</span></div>
+          <div class="service"><strong>信息层级优化</strong><span>区分标题、结论、数据和辅助说明。</span></div>
+          <div class="service"><strong>页面版式设计</strong><span>调整字体、配色、间距和页面布局。</span></div>
+          <div class="service"><strong>图表视觉表达</strong><span>处理流程、时间线、数据和对比关系。</span></div>
+          <div class="service"><strong>汇报场景适配</strong><span>根据汇报对象调整页面重点。</span></div>
+          <div class="service"><strong>整体风格统一</strong><span>统一页面节奏和投屏阅读体验。</span></div>
+        </div>
+      </div>
+      <div class="footer"><span>以你提供的真实资料为基础制作</span><span>03 / 06</span></div>
+    </section>
+
+    <section class="slide dark">
+      <div>
+        <div class="eyebrow">页面前后对比</div>
+        <h2>把资料堆叠<br>整理成能讲清楚的页面</h2>
+        <div class="split">
+          <div class="panel">
+            <small>原始内容</small>
+            <p>项目背景<br>当前问题<br>解决方案<br>项目进展<br>后续计划</p>
+          </div>
+          <div class="panel after">
+            <small>整理后的表达</small>
+            <p>项目复盘：从问题定位到方案落地<br><br>现状 → 处理 → 数据变化 → 下一步</p>
+          </div>
+        </div>
+      </div>
+      <div class="footer"><span>标题结论化｜文字分组｜重点突出</span><span>04 / 06</span></div>
+    </section>
+
+    <section class="slide blue">
+      <div>
+        <div class="eyebrow">适用场景</div>
+        <h2>适合这些<br>职场PPT需求</h2>
+        <div class="scene-grid">
+          <div class="scene"><strong>工作汇报</strong><span>整理工作进展、重点事项和下一步计划。</span></div>
+          <div class="scene"><strong>述职竞聘</strong><span>呈现工作内容、能力证明和发展规划。</span></div>
+          <div class="scene"><strong>项目复盘</strong><span>梳理背景、过程、问题和后续动作。</span></div>
+          <div class="scene"><strong>年度总结</strong><span>归纳全年工作、重点成果和计划安排。</span></div>
+          <div class="scene"><strong>客户提案</strong><span>整理方案逻辑、服务内容和沟通重点。</span></div>
+          <div class="scene"><strong>商业展示</strong><span>根据提供的资料制作展示型页面。</span></div>
+        </div>
+      </div>
+      <div class="footer"><span>具体页数和制作范围以沟通及订单约定为准</span><span>05 / 06</span></div>
+    </section>
+
+    <section class="slide">
+      <div>
+        <div class="eyebrow">制作流程与交付</div>
+        <h2>从资料到成稿<br>按流程完成</h2>
+        <div class="steps">
+          <div class="step"><div class="num">1</div><div><strong>发送资料</strong><span>用途、汇报对象、预计页数、截止时间和原始内容。</span></div></div>
+          <div class="step"><div class="num">2</div><div><strong>确认范围</strong><span>确认页面数量、视觉方向、交付格式和修改约定。</span></div></div>
+          <div class="step"><div class="num">3</div><div><strong>梳理制作</strong><span>整理逻辑、设计页面、统一字体配色和版式。</span></div></div>
+          <div class="step"><div class="num">4</div><div><strong>交付文件</strong><span>按约定交付PPTX可编辑版和PDF预览版。</span></div></div>
+        </div>
+      </div>
+      <div class="footer"><span>先沟通需求，再确认具体价格与时间</span><span>06 / 06</span></div>
+    </section>
+  </main>
+
+  <section class="copy">
+    <h2>可复制到闲鱼的发布文案</h2>
+
+    <h3>推荐标题</h3>
+    <pre>工作汇报PPT定制｜述职竞聘｜项目复盘｜年度总结｜商业展示</pre>
+
+    <h3>详情页正文</h3>
+    <pre>【关于我】
+提供职场PPT定制服务，主要处理工作汇报、述职竞聘、项目复盘、年度总结、客户提案和商业展示类PPT。
+
+擅长把零散资料整理成清晰的汇报结构，重点处理页面标题、信息层级、图表表达和整体视觉统一。
+个人经历、公司信息和公开案例请以实际情况为准，未确认的内容不直接写入商品页。
+
+【适用场景】
+工作汇报PPT
+述职竞聘PPT
+项目复盘PPT
+年度总结PPT
+客户提案PPT
+商业展示PPT
+
+【服务内容】
+1. 梳理页面顺序和内容结构
+2. 优化页面标题、结论和信息层级
+3. 调整文字分组、版式、字体、配色和间距
+4. 处理流程图、时间线、数据对比和基础图表表达
+5. 根据汇报对象和使用场景调整页面重点
+6. 统一整套PPT的视觉风格和投屏阅读体验
+
+【制作流程】
+1. 发送PPT用途、汇报对象、预计页数、截止时间和原始资料
+2. 确认页面范围、视觉方向、交付格式和修改约定
+3. 根据资料梳理逻辑并完成页面制作
+4. 按订单约定交付文件，并处理约定范围内的修改
+
+【你需要提供】
+原始文字或旧版PPT、数据和图片、品牌或公司模板（如有）、参考风格、使用场景和截止时间。
+涉及公司内部资料、客户信息或经营数据时，请先确认你有权提供，并在发送前完成必要脱敏。
+
+【交付说明】
+默认可按订单约定交付PPTX可编辑版和PDF预览版。
+具体页数、价格、交付时间、修改次数和文件格式，以商品页面及订单约定为准。
+资料不完整、临时新增页面或大幅改变方向，可能需要重新确认时间和费用。
+
+【服务边界】
+页面内容以你提供的真实资料为基础整理，不虚构公司信息、项目数据和业务成果。
+不承诺汇报通过、竞聘成功、晋升、融资或客户签约结果。
+超出原订单范围的新增页面和大幅改稿，请先在闲鱼内确认。
+
+【咨询时请发送】
+用途＋汇报对象＋预计页数＋截止时间＋是否有旧版PPT或文字资料＋期望风格。</pre>
+
+    <h3>自动回复首句</h3>
+    <pre>你好，可以先发PPT用途、汇报对象、预计页数、原始资料和期望完成时间。我会先确认页面范围、交付格式和修改内容，再按商品页面及订单约定处理。</pre>
+
+    <h3>上架前替换项</h3>
+    <pre>请补充并核对：实际价格｜预计页数｜交付时间｜修改次数｜可交付格式｜真实个人经历｜可公开案例｜是否包含图表重绘｜是否包含演讲稿。</pre>
+
+    <h3>上架前自检</h3>
+    <pre>□ 标题、商品图、详情页和实际服务一致
+□ 已补充真实价格、页数、交付时间、修改次数和文件格式
+□ 个人经历与案例真实，案例已脱敏并确认拥有使用权
+□ 没有外部联系方式、二维码、站外链接或隐晦导流
+□ 没有保证汇报通过、竞聘成功、晋升、融资或客户签约
+□ 没有混入简历、校园、教育或课程作业内容
+□ 新增页面和大幅改稿已在闲鱼内确认范围、价格和时间
+□ 沟通、支付、交付和售后按闲鱼页面及订单约定执行</pre>
+  </section>
+</body>
+</html>
