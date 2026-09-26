@@ -208,3 +208,9 @@ HTML 的统一结构与 PPT 项目保持一致：
 专项规则和官方链接见：
 
 - `skill/xianyu-resume-listing/references/rules.md`
+
+## 13. 项目沉淀
+
+- 每完成一版简历上架稿，都要回看本文件和 `skill/xianyu-resume-listing/SKILL.md`，把新确认的输出模式、页面顺序、文案边界和检查项同步进去。
+- 如果出现新的简历细分方向，例如转行简历、产品经理简历、运营简历、英文简历，应在 Skill 中补充适用场景和差异化文案规则。
+- 如果发现容易违规或容易混入 PPT 项目的表达，应补充到本文件和 `skill/xianyu-resume-listing/references/rules.md`。
